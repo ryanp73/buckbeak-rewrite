@@ -28,10 +28,10 @@ public final class Constants {
 
   public static class MotorPorts {
     public static final int frontLeftMotor = 0;
-    public static final int frontRightMotor = 1;
-    public static final int backLeftMotor = 2;
-    public static final int backRightMotor = 3;
-    public static final int shooterMotor = 4;
+    public static final int frontRightMotor = 2;
+    public static final int backLeftMotor = 3;
+    public static final int backRightMotor = 1;
+    public static final int shooterMotor = 2;
   }
 
   public static class MaxSpeeds {
@@ -39,7 +39,7 @@ public final class Constants {
   }
 
   public static class PneumaticsPorts {
-    public static final int forward = 1;
-    public static final int reverse = 2;
+    public static final int forward = 0;
+    public static final int reverse = 1;
   }
 }

@@ -9,7 +9,9 @@ import frc.robot.subsystems.MecanumDriveSubsystem;
 import frc.robot.subsystems.ShooterPistonSubsystem;
 import frc.robot.subsystems.ShooterWheelSubsystem;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
@@ -33,8 +35,8 @@ public class RobotContainer {
   private final ShooterPistonSubsystem shooterPistonSubsystem = new ShooterPistonSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandPS4Controller driverController =
-      new CommandPS4Controller(OperatorConstants.kDriverControllerPort);
+  private final CommandXboxController driverController =
+      new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -60,11 +62,11 @@ public class RobotContainer {
 
     shooterPistonSubsystem.setDefaultCommand(new RunCommand(() -> shooterPistonSubsystem.reset(), shooterPistonSubsystem));
 
-    driverController.L2()
+    driverController.leftTrigger()
                     .whileTrue(new RunCommand(() -> shooterWheelSubsystem.setSpeed(0.5)))
                     .whileFalse(new RunCommand(() -> shooterWheelSubsystem.setSpeed(0)));
 
-    driverController.cross()
+    driverController.a()
                     .whileTrue(new RunCommand(() -> shooterPistonSubsystem.shoot()))
                     .whileFalse(new RunCommand(() -> shooterPistonSubsystem.reset()));
   }

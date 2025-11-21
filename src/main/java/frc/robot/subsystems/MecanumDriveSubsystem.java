@@ -41,8 +41,8 @@ public class MecanumDriveSubsystem extends SubsystemBase {
     ChassisSpeeds chassisSpeeds = new ChassisSpeeds(velocityX, velocityY, rotation);
     MecanumDriveWheelSpeeds wheelSpeeds = kinematics.toWheelSpeeds(chassisSpeeds);
     frontLeftMotorController.set(wheelSpeeds.frontLeftMetersPerSecond);
-    frontRightMotorController.set(wheelSpeeds.frontRightMetersPerSecond);
+    frontRightMotorController.set(-wheelSpeeds.frontRightMetersPerSecond);
     backLeftMotorController.set(wheelSpeeds.rearLeftMetersPerSecond);
-    backRightMotorController.set(wheelSpeeds.rearRightMetersPerSecond);
+    backRightMotorController.set(-wheelSpeeds.rearRightMetersPerSecond);
   }
 }

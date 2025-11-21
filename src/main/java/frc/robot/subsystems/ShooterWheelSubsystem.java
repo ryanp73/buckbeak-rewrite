@@ -4,13 +4,15 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorPorts;
 
 public class ShooterWheelSubsystem extends SubsystemBase {
 
-  private final PWMTalonSRX wheelController = new PWMTalonSRX(MotorPorts.shooterMotor);
+  private final WPI_TalonSRX wheelController = new WPI_TalonSRX(MotorPorts.shooterMotor);
   /** Creates a new ShooterWheelSubsystem. */
   public ShooterWheelSubsystem() {
 
